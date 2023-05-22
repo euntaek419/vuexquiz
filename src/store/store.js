@@ -1,4 +1,7 @@
 import { createStore } from 'vuex'
+import getters from './getters'
+import mutations from './mutations';
+import actions from './actions';
 
 const store = createStore({
     state() {
@@ -6,34 +9,9 @@ const store = createStore({
             counter : 0,
         }
     },
-    getters: {
-        getCounter: function (state) {
-            return state.counter;
-        }
-    },
-    mutations : {
-        plusten(state) {
-            if(state.counter >= 100 || state.counter + 10 >= 100)
-            state.counter = 100
-
-            else(state.counter = state.counter + 10)
-        },
-        plustwo(state, payload) {
-            if(state.counter >= 100 || state.counter + 2 >= 100)
-            state.counter = 100
-
-            else(state.counter += payload)
-        },
-    },
-    actions : {
-        heyten(context) {
-            context.commit('plusten')
-        },
-        heytwo(context) {
-            context.commit('plustwo', 2)
-        },
-
-    }
+    getters,
+    mutations,
+    actions,
 })
 
 export default store;
